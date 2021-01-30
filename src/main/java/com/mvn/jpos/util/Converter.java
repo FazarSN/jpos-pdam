@@ -1,0 +1,74 @@
+package com.mvn.jpos.util;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.jpos.iso.IFA_BITMAP;
+import org.jpos.iso.ISOException;
+import org.jpos.iso.ISOMsg;
+import org.jpos.iso.packager.GenericPackager;
+import org.json.simple.JSONObject;
+
+public class Converter {
+
+    private Converter() {
+    }
+
+    private static ISOMsg loadPackager() throws ISOException {
+        ISOMsg isoMsg = new ISOMsg();
+        isoMsg.setPackager(new GenericPackager("cfg/pdamPackager.xml"));
+        return isoMsg;
+    }
+
+    public static String fromISOtoJSON(String isoMessage) throws ISOException {
+        byte[] isoMsgByte = new byte[isoMessage.length()];
+        for (int i = 0; i < isoMsgByte.length; i++) {
+            isoMsgByte[i] = (byte) (int) isoMessage.charAt(i);
+        }
+
+        ISOMsg packageMsg = loadPackager();
+        packageMsg.unpack(isoMsgByte);
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("MTI", packageMsg.getMTI());
+        for (int i = 1; i <= packageMsg.getMaxField(); i++) {
+            if (packageMsg.hasField(i))
+                jsonObject.put(i, packageMsg.getString(i));
+        }
+        return jsonObject.toJSONString();
+    }
+
+    public static String fromJSONtoISO(String mti) throws ISOException {
+        ISOMsg packageMsg = loadPackager();
+
+        packageMsg.set(0, mti);
+        switch (mti) {
+            case "0100":
+                packageMsg = requestPelanggan(packageMsg);
+                break;
+            default:
+                break;
+        }
+
+        byte[] isoByteMsg = packageMsg.pack();
+
+        String isoMessage = "";
+        for (int i = 0; i < isoByteMsg.length; i++) {
+            isoMessage += (char) isoByteMsg[i];
+        }
+        return isoMessage;
+    }
+
+    private static ISOMsg requestPelanggan(ISOMsg packageMsg) throws ISOException {
+        // TODO : hard coded
+        packageMsg.set(1, "0");
+        packageMsg.set(7, "0106105341");
+        packageMsg.set(11, "000003");
+        packageMsg.set(33, "0101210061");
+        packageMsg.set(39, "001");
+        packageMsg.set(41, "2000000");
+
+        return packageMsg;
+    }
+
+}

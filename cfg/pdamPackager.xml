@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE isopackager PUBLIC
+        "-//jPOS/jPOS Generic Packager DTD 1.0//EN"
+        "http://jpos.org/dtd/generic-packager-1.0.dtd">
+
+<!-- ISO 8583:1987 (ASCII) field descriptions for GenericPackager -->
+
+<isopackager>
+  <isofield
+      id="0"
+      length="4"
+      name="MESSAGE TYPE INDICATOR"
+      class="org.jpos.iso.IFA_NUMERIC"/>
+  <isofield
+      id="1"
+      length="16"
+      name="BIT MAP"
+      class="org.jpos.iso.IFA_BITMAP"/>
+  <isofield
+      id="7"
+      length="10"
+      name="Transmission date and time"
+      class="org.jpos.iso.IFA_NUMERIC"/>
+  <isofield
+      id="11"
+      length="6"
+      name="STAN"
+      class="org.jpos.iso.IFA_NUMERIC"/>
+  <isofield
+      id="12"
+      length="10"
+      name="TIME, LOCAL TRANSACTION"
+      class="org.jpos.iso.IFA_NUMERIC"/>
+  <isofield
+      id="13"
+      length="4"
+      name="Month Request"
+      class="org.jpos.iso.IFA_NUMERIC"/>
+  <isofield
+      id="14"
+      length="4"
+      name="Year Request"
+      class="org.jpos.iso.IFA_NUMERIC"/>
+  <isofield
+      id="25"
+      length="4"
+      name="Jumlah Paket Data"
+      class="org.jpos.iso.IFA_NUMERIC"/>
+  <isofield
+      id="33"
+      length="10"
+      name="Partner Central ID"
+      class="org.jpos.iso.IFA_NUMERIC"/>
+  <isofield
+      id="39"
+      length="3"
+      name="Action Code"
+      class="org.jpos.iso.IF_CHAR"/>
+  <isofield
+      id="40"
+      length="3"
+      name="Respon Code"
+      class="org.jpos.iso.IF_CHAR"/>
+  <isofield
+      id="41"
+      length="8"
+      name="Terminal ID"
+      class="org.jpos.iso.IFA_NUMERIC"/>
+  <isofield
+      id="48"
+      length="999"
+      name="DATA"
+      class="org.jpos.iso.IFA_LLLCHAR"/>
+  <isofield
+      id="57"
+      length="3"
+      name="Error Code"
+      class="org.jpos.iso.IF_CHAR"/>
+</isopackager>
