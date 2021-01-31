@@ -5,6 +5,7 @@ import java.util.Date;
 
 import org.jpos.iso.IFA_BITMAP;
 import org.jpos.iso.ISOException;
+import org.jpos.iso.ISOHeader;
 import org.jpos.iso.ISOMsg;
 import org.jpos.iso.packager.GenericPackager;
 import org.json.simple.JSONObject;
@@ -61,12 +62,12 @@ public class Converter {
 
     private static ISOMsg requestPelanggan(ISOMsg packageMsg) throws ISOException {
         // TODO : hard coded
-        packageMsg.set(1, "0");
         packageMsg.set(7, "0106105341");
         packageMsg.set(11, "000003");
         packageMsg.set(33, "0101210061");
         packageMsg.set(39, "001");
-        packageMsg.set(41, "2000000");
+        packageMsg.set(41, "20000000");
+        packageMsg.set(65, "0");
 
         return packageMsg;
     }

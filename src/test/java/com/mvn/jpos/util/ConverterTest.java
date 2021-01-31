@@ -10,7 +10,7 @@ public class ConverterTest {
         String message = "";
         try {
             message = Converter
-                    .fromISOtoJSON("01008220000082800000000000000000000001061053410000030101210061001200000PD");
+                    .fromISOtoJSON("010002200000828000000106105341000003010121006100102000000");
         } catch (ISOException e) {
             e.printStackTrace();
         }
