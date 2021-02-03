@@ -8,3 +8,10 @@ settings.json
 App.class
 Converter.class
 ConverterTest.class
+/bin/.gitignore
+/bin/cfg/pdamPackager.xml
+/bin/pom.xml
+/bin/target/classes/META-INF/MANIFEST.MF
+/target/classes/META-INF/MANIFEST.MF
+/target/classes/META-INF/maven/jpos-mvn/jpos-mvn/pom.properties
+/target/classes/META-INF/maven/jpos-mvn/jpos-mvn/pom.xml

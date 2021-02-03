@@ -22,9 +22,10 @@ public class Converter {
             isoMsgByte[i] = (byte) (int) isoMessage.charAt(i);
         }
 
+        
         ISOMsg packageMsg = loadPackager();
         packageMsg.unpack(isoMsgByte);
-
+        
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("MTI", packageMsg.getMTI());
         for (int i = 1; i <= packageMsg.getMaxField(); i++) {
@@ -65,7 +66,7 @@ public class Converter {
         packageMsg.set(33, "0101210061");
         packageMsg.set(39, "001");
         packageMsg.set(41, "20000000");
-        packageMsg.set(65, "0");
+		packageMsg.set(65, "");
 
         return packageMsg;
     }
