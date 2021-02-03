@@ -1,11 +1,6 @@
 package com.mvn.jpos.util;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import org.jpos.iso.IFA_BITMAP;
 import org.jpos.iso.ISOException;
-import org.jpos.iso.ISOHeader;
 import org.jpos.iso.ISOMsg;
 import org.jpos.iso.packager.GenericPackager;
 import org.json.simple.JSONObject;
@@ -45,7 +40,10 @@ public class Converter {
         packageMsg.set(0, mti);
         switch (mti) {
             case "0100":
-                packageMsg = requestPelanggan(packageMsg);
+                requestPelanggan(packageMsg);
+                break;
+            case "0800":
+                requestNetwork(packageMsg);
                 break;
             default:
                 break;
@@ -68,6 +66,16 @@ public class Converter {
         packageMsg.set(39, "001");
         packageMsg.set(41, "20000000");
         packageMsg.set(65, "0");
+
+        return packageMsg;
+    }
+
+    private static ISOMsg requestNetwork(ISOMsg packageMsg) throws ISOException {
+        // TODO : hard coded
+        packageMsg.set(7, "0203115341");
+        packageMsg.set(11, "000003");
+        packageMsg.set(41, "20000000");
+        packageMsg.set(65, "");
 
         return packageMsg;
     }
