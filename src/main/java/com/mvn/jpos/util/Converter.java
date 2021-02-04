@@ -75,6 +75,7 @@ public class Converter {
         // TODO : hard coded
         packageMsg.set(7, "0203115341");
         packageMsg.set(11, "000003");
+        packageMsg.set(39, "001");
         packageMsg.set(41, "20000000");
         packageMsg.set(65, "");
 

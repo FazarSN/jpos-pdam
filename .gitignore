@@ -15,3 +15,5 @@ ConverterTest.class
 /target/classes/META-INF/MANIFEST.MF
 /target/classes/META-INF/maven/jpos-mvn/jpos-mvn/pom.properties
 /target/classes/META-INF/maven/jpos-mvn/jpos-mvn/pom.xml
+/target/classes/com/mvn/jpos/socket/*.class
+/target/test-classes/com/mvn/jpos/socket/*.class
