@@ -22,7 +22,7 @@ public class ConverterTest {
 		String message = "";
 		String header = "";
 		try {
-			message = Converter.fromJSONtoISO("0100");
+			message = Converter.fromJSONtoISO("0800");
 
 			header = String.format("%04d", message.length());
 		} catch (ISOException e) {

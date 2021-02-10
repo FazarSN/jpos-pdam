@@ -65,7 +65,7 @@ public class Converter {
         packageMsg.set(11, "000003");
         packageMsg.set(33, "0101210061");
         packageMsg.set(39, "001");
-        packageMsg.set(41, "20000000");
+        packageMsg.set(41, "20000008");
 		packageMsg.set(65, "");
 
         return packageMsg;
@@ -76,7 +76,7 @@ public class Converter {
         packageMsg.set(7, "0203115341");
         packageMsg.set(11, "000003");
         packageMsg.set(39, "001");
-        packageMsg.set(41, "20000000");
+        packageMsg.set(41, "20000008");
         packageMsg.set(65, "");
 
         return packageMsg;
